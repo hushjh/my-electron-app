@@ -1,7 +1,8 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron');
+const { app, BrowserWindow, globalShortcut } = require('electron');
 const path = require('node:path');
 // import createWindow from './main/darkMode.js';
-import createWindow from './main/bluetooth.js';
+// import createWindow from './main/bluetooth.js';
+import createWindow from './main/menu';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -14,8 +15,10 @@ if (require('electron-squirrel-startup')) {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow();
 
+  globalShortcut.register('Alt+CommandOrControl+I', () => {
+    console.log('Eletron loves global shortcuts')
+  })
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   app.on('activate', () => {
@@ -23,7 +26,7 @@ app.whenReady().then(() => {
       createWindow();
     }
   });
-});
+}).then(createWindow);
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
