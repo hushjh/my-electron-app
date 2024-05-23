@@ -3,7 +3,8 @@ const path = require('node:path');
 // import createWindow from './main/darkMode.js';
 // import createWindow from './main/bluetooth.js';
 // import createWindow from './main/menu';
-import createWindow from './main/drag.js'
+// import createWindow from './main/drag.js'
+import createWindow from './main/notification'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -30,14 +31,6 @@ app.whenReady().then(() => {
   // ipcMain.on('ondragstart', fileDrag)
 }).then(createWindow);
 
-// function fileDrag(event, filePath) {
-//   // 文件拖放
-//   const iconName = path.join(__dirname, "iconForDragAndDrop.png"); //icon
-//   event.sender.startDrag({
-//     file: path.join(__dirname, filePath),
-//     icon: iconName,
-//   });
-// }
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

@@ -1,5 +1,4 @@
 const { contextBridge, ipcRenderer } = require('electron')
-const path = require('path')
 
 const expose = () => {
   contextBridge.exposeInMainWorld('electron', {
