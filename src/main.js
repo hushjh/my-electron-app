@@ -4,7 +4,8 @@ const path = require('node:path');
 // import createWindow from './main/bluetooth.js';
 // import createWindow from './main/menu';
 // import createWindow from './main/drag.js'
-import createWindow from './main/notification'
+// import createWindow from './main/notification'
+import createWindow from './main/progress'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
